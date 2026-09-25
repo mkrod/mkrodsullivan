@@ -33,6 +33,7 @@ interface ImageViewerProps {
   initialIndex?: number;
   activityStyle?: ActivityIndicatorProps["style"];
   proxy?: boolean;
+  thumbnailClassName?: string;
 }
 
 interface Position {
@@ -44,12 +45,8 @@ const CAPTION_SHORT_LENGTH = 20;
 const MIN_SCALE = 0.5;
 const MAX_SCALE = 5;
 
-const ImageViewer: FC<ImageViewerProps> = ({
-  images,
-  initialIndex = 0,
-  activityStyle = "spin",
-  proxy = false,
-}) => {
+const ImageViewer: FC<ImageViewerProps> = ({ images, thumbnailClassName, initialIndex = 0, activityStyle = "spin", proxy = false }) => {
+
   const [isOpen, setIsOpen] = useState(false);
   const [currentIndex, setCurrentIndex] = useState(
     initialIndex,
@@ -324,13 +321,45 @@ const ImageViewer: FC<ImageViewerProps> = ({
         )}...`
         : "";
 
+  const [thumbNailLoading, setThumbNailLoading] = useState(true);
+
+  const thumbnailRef = useCallback((img: HTMLImageElement | null) => {
+    if (!img) return;
+
+    if (img.complete && img.naturalWidth > 0) {
+      setThumbNailLoading(false);
+    }
+  }, []);
+
+
   return (
     <>
       <div
         className={styles.thumbnailOverlay}
         onClick={() => openAt(initialIndex)}
         aria-hidden="true"
-      />
+      >
+        {thumbNailLoading && (
+          <ActivityIndicator
+            style="spin"
+            size="small"
+            cover
+            zIndex={1}
+          />
+        )}
+        <img
+          ref={thumbnailRef}
+          src={images[0].uri}
+          alt={images[0].alt || undefined}
+          className={thumbnailClassName}
+          onLoad={() => setThumbNailLoading(false)}
+          style={{
+            opacity: thumbNailLoading ? 0.1 : 1,
+            transition: 'opacity ease-in-out .375s',
+            zIndex: 2
+          }}
+        />
+      </div>
 
       {isOpen &&
         createPortal(

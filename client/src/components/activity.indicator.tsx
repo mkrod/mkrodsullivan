@@ -6,6 +6,7 @@ export interface ActivityIndicatorProps {
     style: "spin" | "typing" | "orbit";
     color?: string;
     size: "small" | "medium" | "big";
+    zIndex?: number;
 }
 
 const ActivityIndicator: FC<ActivityIndicatorProps> = ({
@@ -13,9 +14,11 @@ const ActivityIndicator: FC<ActivityIndicatorProps> = ({
     style,
     color = "var(--accent)",
     size,
+    zIndex,
 }) => {
     return (
         <div
+            style={{ zIndex }}
             className={`${styles.container} ${cover ? styles.container_covered : ""
                 }`}
         >

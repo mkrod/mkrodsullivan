@@ -198,14 +198,10 @@ export default function Home({ projectsRes = defaultChunkedData }: Props) {
         <section className={`${styles.heroSection} patternBg`}>
           <header className={styles.heroTop}>
             <div className={styles.avatarWrapper}>
-              <img
-                src='/mkrodsullivan.png'
-                alt="MkRoD"
-                className={styles.avatar}
-              />
               <ImageViewer
-                images={[{ uri: '/mkrodsullivan.png' }]}
+                images={[{ uri: '/mkrodsullivan.png', alt: "MkRoD" }]}
                 activityStyle="typing"
+                thumbnailClassName={styles.avatar}
               />
             </div>
 

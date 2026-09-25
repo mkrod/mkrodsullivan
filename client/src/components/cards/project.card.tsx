@@ -22,10 +22,13 @@ export default function ProjectCard({ project }: Props) {
                 className={styles.imageWrapper}
             >
                 {image ? (
-                    <img
-                        src={image}
-                        alt={`${project.name} preview`}
-                        className={styles.image}
+                    <ImageViewer
+                        images={(project.image_preview_url || []).map((i) => ({
+                            uri: i,
+                            alt: project.name,
+                            caption: project.description,
+                        }))}
+                        thumbnailClassName={styles.image}
                     />
                 ) : (
                     <div className={styles.imageFallback}>
@@ -38,13 +41,6 @@ export default function ProjectCard({ project }: Props) {
                         Featured
                     </span>
                 )}
-                <ImageViewer
-                    images={(project.image_preview_url || []).map((i) => ({
-                        uri: i,
-                        alt: project.name,
-                        caption: project.description,
-                    }))}
-                />
             </div>
 
             <div className={styles.content}>
