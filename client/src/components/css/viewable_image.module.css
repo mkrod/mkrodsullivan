@@ -1,0 +1,142 @@
+.thumbnailOverlay {
+    position: absolute;
+    inset: 0;
+    z-index: 10;
+    cursor: pointer;
+}
+
+.modal {
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    background: rgba(0, 0, 0, 0.94);
+}
+
+.modalTopbar {
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    z-index: 4;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem;
+}
+
+.topbarActions {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.counter {
+    color: #eee;
+    font-size: 0.85rem;
+}
+
+.icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.5rem;
+    color: #eee;
+    background: transparent;
+    border: 0;
+    cursor: pointer;
+}
+
+.imageContainer {
+    position: relative;
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 0;
+    overflow: hidden;
+}
+
+.fullImage {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+    cursor: grab;
+    user-select: none;
+    transition: opacity 0.2s ease;
+}
+
+.dragging .fullImage {
+    cursor: grabbing;
+    transition: none;
+}
+
+.navigation {
+    position: absolute;
+    top: 50%;
+    z-index: 3;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 3rem;
+    height: 3rem;
+    padding: 0;
+    color: #eee;
+    background: rgba(20, 20, 20, 0.65);
+    border: 0;
+    transform: translateY(-50%);
+    cursor: pointer;
+}
+
+.previous {
+    left: 1.25rem;
+}
+
+.next {
+    right: 1.25rem;
+}
+
+.guideBox {
+    position: absolute;
+    top: 4rem;
+    left: 50%;
+    z-index: 5;
+    width: min(90%, 28rem);
+    padding: 1rem;
+    color: #eee;
+    background: rgba(20, 20, 20, 0.92);
+    transform: translateX(-50%);
+}
+
+.guideButtons {
+    display: flex;
+    justify-content: flex-end;
+    gap: 0.75rem;
+    margin-top: 0.75rem;
+}
+
+.buttonClose,
+.buttonDontShow {
+    padding: 0.4rem 0.6rem;
+    color: #eee;
+    background: transparent;
+    border: 0;
+    cursor: pointer;
+}
+
+.caption {
+    flex-shrink: 0;
+    padding: 1rem 1.5rem;
+    color: #eee;
+    text-align: center;
+}
+
+.toggleCaption {
+    margin-left: 0.5rem;
+    color: var(--accent);
+    background: transparent;
+    border: 0;
+    cursor: pointer;
+}

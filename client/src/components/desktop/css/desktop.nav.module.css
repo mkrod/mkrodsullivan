@@ -1,0 +1,97 @@
+.container{
+    position: sticky;
+    top: 0;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    gap: 3rem;
+    align-items: center;
+    padding: 1rem 4rem;
+    z-index: 10;
+    background-color: var(--bg);
+}
+
+.nameWrapper{
+    display: flex;
+    flex-direction: column;
+    font-family: var(--font-global);
+    line-height: 1.2;
+}
+
+.name{
+    font-weight: bolder;
+    font-size: var(--sm-font);
+}
+
+.navLinks{
+    margin-left: auto;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 1rem;
+}
+
+.nav{
+    padding: 0.5rem 1.5rem;
+    display: flex;
+    flex-direction: row;
+    gap: 0.4rem;
+    align-items: center;
+    text-decoration: none;
+    cursor: pointer;
+    z-index: 9;
+    background-color: transparent;
+}
+
+
+.navLabel, .navChildLabel{
+    font-size: var(--sm-font);
+    font-weight: 600;
+    color: var(--text);
+    transition:  color ease-in-out .375s;
+}
+
+.nav:hover > .navLabel, .nav:hover > .navChildLabel{
+    color: var(--accent);
+}
+
+.navChildLabel{
+    font-size: var(--xs-font);
+}
+
+.navIconWrapper{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: rotate ease-in-out .375s;
+}
+
+
+.navIconWrapperRotate{
+    rotate: 180deg;
+}
+
+.navIcon{
+    color: var(--text);
+    transition:  color ease-in-out .375s;
+}
+
+.nav:hover > .navIcon{
+    color: var(--accent);
+}
+
+
+.navChildren{
+    position: absolute;
+    top: -10rem;
+    background-color: var(--bg-sec);
+    padding: 0.5rem;
+    min-width: 10rem;
+    transition: top ease-in-out .375s;
+    z-index: 8;
+    border-radius: 0 0 0.5rem 0.5rem;
+}
+
+.navChildrenOpen{
+    top: 4rem;
+}

@@ -1,0 +1,145 @@
+.container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.container_covered {
+    position: absolute;
+    inset: 0;
+}
+
+/* ---------- SPINNER ---------- */
+
+.spinner {
+    border: 3px solid rgba(0, 0, 0, 0.15);
+    border-radius: 50%;
+    animation: spin 0.8s linear infinite;
+}
+
+.small {
+    width: 14px;
+    height: 14px;
+    flex-shrink: 0;
+    border-width: 2px;
+}
+
+.medium {
+    width: 22px;
+    height: 22px;
+    flex-shrink: 0;
+    border-width: 3px;
+}
+
+.big {
+    width: 32px;
+    height: 32px;
+    flex-shrink: 0;
+    border-width: 4px;
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* ---------- TYPING ---------- */
+
+.typing {
+    display: flex;
+    gap: 4px;
+}
+
+.typing i {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    opacity: 0.2;
+    animation: blink 1.4s infinite both;
+}
+
+.typing i:nth-child(1) {
+    animation-delay: 0s;
+}
+
+.typing i:nth-child(2) {
+    animation-delay: 0.2s;
+}
+
+.typing i:nth-child(3) {
+    animation-delay: 0.4s;
+}
+
+@keyframes blink {
+    0%,
+    80%,
+    100% {
+        opacity: 0.2;
+    }
+
+    40% {
+        opacity: 1;
+    }
+}
+
+/* ---------- ORBIT ---------- */
+
+.orbit {
+    position: relative;
+    display: block;
+    border: 2px solid color-mix(
+        in srgb,
+        var(--indicator-color) 18%,
+        transparent
+    );
+    border-radius: 50%;
+    animation: orbitRotate 1.2s linear infinite;
+}
+
+.orbit::before {
+    content: "";
+    position: absolute;
+    inset: -2px;
+    border-radius: inherit;
+    border: 2px solid transparent;
+    border-top-color: var(--indicator-color);
+    border-right-color: var(--indicator-color);
+}
+
+.orbit i {
+    position: absolute;
+    width: 25%;
+    height: 25%;
+    top: -12%;
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 50%;
+    background: var(--indicator-color);
+    box-shadow: 0 0 8px color-mix(
+        in srgb,
+        var(--indicator-color) 45%,
+        transparent
+    );
+}
+
+.orbit.small {
+    width: 16px;
+    height: 16px;
+}
+
+.orbit.medium {
+    width: 24px;
+    height: 24px;
+}
+
+.orbit.big {
+    width: 34px;
+    height: 34px;
+}
+
+@keyframes orbitRotate {
+    to {
+        transform: rotate(360deg);
+    }
+}

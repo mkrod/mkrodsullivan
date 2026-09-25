@@ -1,0 +1,17 @@
+.container{
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 2rem;
+    position: relative;
+}
+
+
+.childrenWrapper{
+    padding-top: 2rem;
+}
+
+@media (max-width: 768px) {
+    .childrenWrapper{
+        padding-top: 3.5rem;
+    }
+}

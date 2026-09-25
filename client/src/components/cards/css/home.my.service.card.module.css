@@ -1,0 +1,35 @@
+.container {
+    display: flex;
+    flex-direction: column;
+
+    background: color-mix(in srgb, var(--bg-sec) 65%, transparent);
+
+    backdrop-filter: blur(40px);
+    -webkit-backdrop-filter: blur(40px);
+
+    box-shadow:
+        0 8px 32px rgba(0, 0, 0, 0.12),
+        inset 0 1px 0 rgba(255, 255, 255, 0.08);
+    width: min(80%, 16rem);
+    min-height: 20rem;
+    padding: 2rem;
+    border-radius: 0.3rem;
+    box-shadow: 0 0 0.2rem var(--border);
+}
+
+.iconWrapper{
+    margin-bottom: 5rem;
+}
+
+.label{
+    font-size: var(--huge-font);
+    font-weight: bold;
+    margin-bottom: 2rem;
+}
+
+.desc{
+    font-size: var(--xs-font);
+    font-weight: bold;
+    margin-top: auto;
+    color: var(--text-fade);
+}

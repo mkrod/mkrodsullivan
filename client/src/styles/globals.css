@@ -1,0 +1,199 @@
+/* --------------------------
+   ROOT VARIABLES
+---------------------------*/
+
+:root {
+  --huge-font: 1.5rem;
+  --xxl-font: 1.3rem;
+  --xl-font: 1.2rem;
+  --l-font: 1rem;
+  --m-font: 0.9rem;
+  --sm-font: 0.8rem;
+  --xs-font: 0.7rem;
+  --xxs-font: 0.6rem;
+  --tiny-font: 0.5rem;
+
+
+  --mobile-bar-height: 4rem;
+  --desktop-bar-height: 3.5rem;
+  --desktop-navbar-width: 18rem;
+  --font-global: "Space Mono", sans-serif;
+
+  --accent: #bacb3c;
+  --accent-sec: #bacb3c;
+  --accent-text: #0b0b0b;
+  /* #9014d8; */
+  --accent-feint: #93c50c74;
+
+
+  /* Rendering Quality */
+  font-synthesis: style;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-tap-highlight-color: none;
+}
+
+
+@media (prefers-color-scheme: light) {
+  :root {
+    --bg: #ffffff;
+    --text: #000000;
+    --bg-sec: #ccc;
+    --bg-fade: #ffffff9d;
+    --text-sec: #5a5a5a;
+    --text-fade: #a5a5a5;
+    --border: #b0b0b0;
+    --border-fade: #dddddd;
+  }
+
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #000000;
+    --text: #f1f1f1;
+    --bg-sec: #0a0a0a;
+    --bg-fade: #0000009d;
+    --text-fade: #c2c2c2;
+    --text-sec: #a1a1a1;
+    --border: #242424;
+    --border-fade: #42424261;
+  }
+}
+
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-global);
+  font-weight: 400;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-size: var(--m-font);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  -webkit-tap-highlight-color: transparent;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  -webkit-overflow-scrolling: touch;
+  -webkit-text-size-adjust: 100%;
+  -ms-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
+
+*::-webkit-scrollbar {
+  width: 3px;
+  height: 3px;
+}
+
+*::-webkit-scrollbar-track {
+  background-color: var(--border-fade);
+  cursor: pointer;
+}
+
+*::selection {
+    background: var(--accent-sec);
+    color: var(--accent-text);
+}
+
+*::-moz-selection {
+    background: var(--accent-sec);
+    color: var(--accent-text);
+}
+
+::-webkit-selection {
+    background: var(--accent-sec);
+    color: var(--accent-text);
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: var(--border-normal);
+  cursor: grabbing;
+}
+
+button, input{
+  border: none;
+  outline: none;
+  cursor: pointer;
+  font-family: var(--font-global);
+}
+
+
+a {
+  text-decoration: none;
+  color: var(--color);
+}
+
+/* 1. Change the bar color and height */
+#nprogress .bar {
+  background: var(--accent) !important;
+  /* Put your hex color here */
+  height: 2.5px !important;
+  /* Make it thicker or thinner */
+}
+
+/* 2. Change the color of the "glow" on the right side */
+#nprogress .peg {
+  box-shadow: 0 0 10px var(--accent), 0 0 5px var(--accent-feint) !important;
+}
+
+/* 3. Change the spinner color (the little circle in the corner) */
+#nprogress .spinner-icon {
+  border-top-color: var(--accent) !important;
+  border-left-color: var(--accent) !important;
+}
+
+#nprogress .spinner {
+  display: none !important;
+}
+
+
+
+
+
+.patternBg{    
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
+    background: var(--bg);
+}
+
+.patternBg::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+
+    background:
+        linear-gradient(
+            var(--bg-sec) 1px,
+            transparent 1px
+        ),
+        linear-gradient(
+            90deg,
+            var(--bg-sec) 1px,
+            transparent 1px
+        );
+    background-size: 60px 60px;
+    opacity: 0.7;
+    mask-image: radial-gradient(
+        ellipse at center,
+        black 0%,
+        transparent 75%
+    );
+    -webkit-mask-image: radial-gradient(
+        ellipse at center,
+        black 0%,
+        transparent 75%
+    );
+}
