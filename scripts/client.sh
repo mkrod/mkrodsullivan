@@ -8,4 +8,4 @@ cd /var/www/nodejs/mkrodsullivan/client || exit 1
 $PNPM_BIN install && $PNPM_BIN run build || { echo "Client Build Failed"; exit 1; }
 
 # Restart and point directly to the binary to stop the loop
-pm2 restart NL_CLIENT || pm2 start $PNPM_BIN --name "MK_CLIENT" -- start
+pm2 restart Mk_CLIENT || pm2 start $PNPM_BIN --name "MK_CLIENT" -- start
