@@ -2,7 +2,7 @@
 # Force the PATH so it finds pnpm/pm2 regardless of the user
 export PATH=$PATH:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin
 
-BASE_DIR="/var/www/nodejs/naijailoaded"
+BASE_DIR="/var/www/nodejs/mkrodsullivan"
 SCRIPTS_DIR="$BASE_DIR/scripts"
 
 # Make sure directory exists
@@ -14,7 +14,7 @@ git reset --hard origin/main
 
 # Run segments
 # Using 'source' or 'bash' keeps things isolated
-bash "$SCRIPTS_DIR/admin.sh"
+# bash "$SCRIPTS_DIR/admin.sh"
 bash "$SCRIPTS_DIR/client.sh"
 bash "$SCRIPTS_DIR/server.sh"
 
